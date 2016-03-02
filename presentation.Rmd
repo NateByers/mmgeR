@@ -121,7 +121,7 @@ renderPlot({
 
 - We use the R package `redcapAPI` to pull data
 
-- Example: Dashboard for [PNRR](https://pnrr.iu.edu/index.asp)
+- Example: Dashboard for PNRR
 
 ## NetAssess
 
@@ -295,7 +295,6 @@ forceNetwork(Links = mmge_links, Nodes = mmge_nodes,
     + Chris Hobbick, chobbick@iu.edu
     + Nathan Byers, nrbyers@iu.edu
     + Eric Bailey, baileye@iu.edu
-    
 - Thanks to Peter Barker for helping us design and implement our Shiny Server infrastructure
 
 - The source for these slides can be found on GitHub: [https://github.com/NateByers/mmgeR](https://github.com/NateByers/mmgeR)
