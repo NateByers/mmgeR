@@ -231,7 +231,7 @@ We also use R to automate emails with custom reports
 
 ## MMGE and R Network Graph
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 library(networkD3)
 # Load data
 mmge_links <- read.table(header = TRUE, text = '
@@ -265,6 +265,25 @@ forceNetwork(Links = mmge_links, Nodes = mmge_nodes,
             opacity = 0.8, fontSize = 30, zoom = TRUE,
             legend = TRUE, charge = -500)
 ```
+
+```{r, echo=FALSE, eval=TRUE}
+library(visNetwork)
+nodes <- c("R", "Shiny", "discrepancies", "reconciliation", "autoEmails",
+           "catalogs", "dashboards")
+nodes_df <- data.frame(id = nodes,
+                       label = c(NA, NA, nodes[3:7]),
+                       group = c("R", "Shiny", rep("R", 3), "Shiny", "Shiny"),
+                       shape = c("image", "image", rep("ellipse", 5)),
+                       image = c("https://raw.githubusercontent.com/NateByers/mmgeR/master/img/Rlogo.png",
+                                 "https://raw.githubusercontent.com/NateByers/mmgeR/master/img/shiny.png",
+                                 rep(NA, 5)),
+                       stringsAsFactors = FALSE)
+edges_df <- data.frame(from = c(rep("R", 4), rep("Shiny", 2)), 
+                       to = nodes[-1])
+visNetwork(nodes_df, edges_df, width = "100%") 
+```
+
+
 
 
 ## IUPUI R Users Group
